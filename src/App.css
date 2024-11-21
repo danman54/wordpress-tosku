@@ -1,0 +1,40 @@
+.canvas {
+  animation: fadeIn 3s;
+}
+
+body{
+  margin: 0 !important; 
+  background: #000;
+}
+
+@keyframes fadeIn {
+  10% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 100;
+  }
+}
+
+.featured-item {
+    display: flex;
+    gap: 100px;
+}
+
+.featured-description {
+    width: 200px;
+    height: 350px;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.featured-item p {
+    padding: 5px;
+    color: #fff;
+}
+
+.featured-aside {
+    background-color: black;
+    padding: 5px;
+    color: #fff;
+}

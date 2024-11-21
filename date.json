@@ -1,0 +1,73 @@
+[
+  {
+    "id": 25,
+    "date": "2024-10-12T05:14:42",
+    "date_gmt": "2024-10-12T05:14:42",
+    "guid": {
+      "rendered": "http://toskuone.local/?post_type=featured&#038;p=25"
+    },
+    "modified": "2024-10-23T03:54:40",
+    "modified_gmt": "2024-10-23T03:54:40",
+    "slug": "blue-6",
+    "status": "publish",
+    "type": "featured",
+    "link": "http://toskuone.local/featured/blue-6/",
+    "title": {
+      "rendered": "Blue 6"
+    },
+    "content": {
+      "rendered": "\n<p>Jelly beans jelly beans lollipop biscuit jelly beans toffee. Macaroon cake gummies jelly cookie croissant donut dessert. Danish carrot cake donut shortbread sweet shortbread chocolate bar cheesecake carrot cake. Pastry gingerbread marshmallow lollipop lollipop lemon drops.</p>\n\n\n\n<p> Macaroon cake marzipan macaroon pudding topping. Toffee tootsie roll jelly beans topping sugar plum jelly-o candy canes chupa chups. Cake chupa chups sesame snaps chupa chups ice cream icing. Chocolate tootsie roll pastry oat cake jelly pastry wafer gummi bears sweet roll. Donut topping tootsie roll dessert tiramisu danish brownie tootsie roll danish. Shortbread gummi bears chocolate jujubes cake marzipan sweet sweet roll. Croissant macaroon shortbread cheesecake icing cupcake sesame snaps. Gingerbread liquorice bonbon jelly toffee sesame snaps candy canes. Jujubes cake brownie wafer tart tootsie roll.</p>\n\n\n\n<iframe loading=\"lazy\" src=\"https://drive.google.com/file/d/124z3jzHIxOQMnZS5M6iziXCOlaDY2x5_/preview\" width=\"640\" height=\"480\" allow=\"autoplay\"></iframe>\n\n\n\n<p></p>\n",
+      "protected": false
+    },
+    "featured_media": 41,
+    "menu_order": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false
+    },
+    "class_list": [
+      "post-25",
+      "featured",
+      "type-featured",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://toskuone.local/wp-json/wp/v2/featured/25"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://toskuone.local/wp-json/wp/v2/featured"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://toskuone.local/wp-json/wp/v2/types/featured"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://toskuone.local/wp-json/wp/v2/media/41"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://toskuone.local/wp-json/wp/v2/media?parent=25"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
