@@ -1,8 +1,28 @@
-# React + Vite
+# Tosku theme for wordpress 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A react app wrapped in a Wordpress theme.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Main entry
+`src/App.jsx` impiorts all other files and assets.
+
+## Assets
+
+All assets are exports from the main TOSKU blender file not in this repo. 
+
+## React App
+
+to run a development enviornment 
+`npm install`
+`npm run dev`
+
+## Worpress theme updates
+
+`npm run build`
+
+- find and replace the base url of all assets in /dist/asstets/*.js from "/TOSKU_" to "/wp-content/themes/tosku/dist/TOSKU_"
+
+- update the functions.php file tosku_enqueue_scripts() function with new generated built .js and .css files
+
+
