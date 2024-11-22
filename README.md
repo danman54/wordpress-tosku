@@ -1,11 +1,11 @@
-# Tosku theme for wordpress 
+# Tosku theme for Wordpress 
 
 A react app wrapped in a Wordpress theme.
 
 ## Structure
 
 Main entry
-`src/App.jsx` impiorts all other files and assets.
+`src/App.jsx` imports all other files and assets.
 
 ## Assets
 
@@ -16,6 +16,11 @@ All assets are exports from the main TOSKU blender file not in this repo.
 to run a development enviornment 
 `npm install`
 `npm run dev`
+
+## Navigating the Scene
+
+The site is a three.js app, to move around the scene to diffrent rooms of the building
+uncomment <OrbitControls /> and comment out <CameraControl/> in `src/App.jsx`
 
 ## Worpress theme updates
 
