@@ -19,8 +19,8 @@ to run a development enviornment
 
 ## Navigating the Scene
 
-The site is a three.js app, to move around the scene to diffrent rooms of the building
-uncomment <OrbitControls /> and comment out <CameraControl/> in `src/App.jsx`
+The site is a three.js app, to orbit and around the scene to diffrent rooms of the building
+uncomment Ln: 84 and comment out Ln:82 in `src/App.jsx`
 
 ## Worpress theme updates
 
