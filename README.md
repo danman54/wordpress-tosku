@@ -28,6 +28,6 @@ uncomment Ln: 84 and comment out Ln:82 in `src/App.jsx`
 
 - find and replace the base url of all assets in /dist/asstets/*.js from "/TOSKU_" to "/wp-content/themes/tosku/dist/TOSKU_"
 
-- update the functions.php file tosku_enqueue_scripts() function with new generated built .js and .css files
+- update the functions.php file, tosku_enqueue_scripts() function with the newly generated built .js and .css file names.
 
 
