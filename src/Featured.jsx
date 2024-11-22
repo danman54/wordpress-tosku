@@ -210,7 +210,7 @@ const Featured = (props) => {
   return (
     <group {...props} dispose={null} rotation={[0, 0, 0]}>
      {/*  <axesHelper args={[2]} position={[-22, 0, 0]}/> */}
-    {/*   <WaterEffect position={[-0.017, -0.126, 20.491]} /> */}
+      {/* <WaterEffect position={[-0.017, -0.126, 20.491]} />  */}
       
     
       {/* <mesh 

@@ -44,7 +44,12 @@ export function CameraControl({ view, item }) {
 
           break;
         } case "about": {
-          setPosition([18, 2, 0])
+  
+          if (item == null) {
+            setPosition([18, 2, 0])
+          } else {
+            setPosition([20, 2, 2])
+          }
 
           break;
         }
@@ -107,25 +112,25 @@ export function CameraControl({ view, item }) {
 
           break;
          } case "about": {
+           
+           
+           if (item == null) {
 
           const quaternionY = new THREE.Quaternion()
-          quaternionY.setFromAxisAngle(new THREE.Vector3(0, 1, 0), 3 * Math.PI / 2)
-          //state.camera.quaternion.copy(quaternionY);
+          quaternionY.setFromAxisAngle(new THREE.Vector3(0, 1, 0),  -Math.PI / 2)
+          state.camera.quaternion.copy(quaternionY);
 
-          const quaternionZ = new THREE.Quaternion()
-          quaternionZ.setFromAxisAngle(new THREE.Vector3(0, 0, 1), (-mouse.y / 5))
-          state.camera.quaternion.slerp(quaternionZ, .01) 
-
-          const quaternionX = new THREE.Quaternion()
-          quaternionX.setFromAxisAngle(new THREE.Vector3(1, 0, 0), 0)
-           //state.camera.quaternion.multiplyQuaternions(quaternionX, state.camera.quaternion);
+           } else { 
+             const quaternionY = new THREE.Quaternion()
+             quaternionY.setFromAxisAngle(new THREE.Vector3(0, 1, 0), (-mouse.x / 5))
+             state.camera.quaternion.slerp(quaternionY, .01)
            
-          state.camera.quaternion.copy(state.camera.quaternion.multiplyQuaternions(quaternionX, quaternionY));
-          state.camera.quaternion.slerp(quaternionX, .01)  
-          //state.camera.quaternion.slerp(quaternionZ, .01) 
-
-          /* console.log("mouse: ", mouse ); */
-          state.camera.updateProjectionMatrix();
+             const quaternionX = new THREE.Quaternion()
+             quaternionX.setFromAxisAngle(new THREE.Vector3(1, 0, 0), (mouse.y / 5))
+             state.camera.quaternion.slerp(quaternionX, .01)
+             state.camera.updateProjectionMatrix();
+             
+           }
 
           break;
          } case "contact": {

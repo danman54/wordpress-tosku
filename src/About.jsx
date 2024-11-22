@@ -5,13 +5,44 @@ import { useNavigate } from "react-router-dom";
 import { useThree } from '@react-three/fiber';
 import axios from 'axios';
 import * as THREE from 'three';
+import { MeshStandardMaterial } from 'three';
 
+function ImageMaterial({ imageUrl }) {
+  const [texture, setTexture] = useState();
+
+  useEffect(() => {
+    if (imageUrl) {
+      const loader = new THREE.TextureLoader();
+      loader.load(imageUrl, (loadedTexture) => {
+        setTexture(loadedTexture);
+      });
+    }
+  }, [imageUrl]);
+
+    return (
+      <group
+        position={[-4.332, 2.257, -19.354]}
+        rotation={[0, -Math.PI / 2, 0]}
+        scale={[1.563, 1.563, 0.129]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube018_1.geometry}
+          material={materials['Screen Placeholder']}
+         >
+                {texture && <meshStandardMaterial map={texture} />}
+            </mesh>
+        </group>
+     
+  )
+}
 
 const ThumbnailItemAbout = ({ index, mediaId, slug, data, id, item }) => { 
   const { nodes, materials } = useGLTF('/TOSKU_Featured_compressed.glb')
   const [mediaData, setMediaData] = useState(null);
   const navigate = useNavigate();
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+    const [mouse, setMouse] = useState({ x: 0, y: 0 });
+    const [error, setError] = useState();
 
   const posX = [-2.218, -0.018];
   const posY = [3.39, 2.09, 0.79];
@@ -39,7 +70,7 @@ const ThumbnailItemAbout = ({ index, mediaId, slug, data, id, item }) => {
 
     //WP REST API endpoint
     const { hostname, protocol } = window.location;
-    const url = `${protocol}//toskuone.local/wp-json/wp/v2/media/${mediaId}`
+    const url = `${protocol}//${hostname}/wp-json/wp/v2/media/${mediaId}`
 
     axios.get(url)
       .then(response => {
@@ -49,15 +80,13 @@ const ThumbnailItemAbout = ({ index, mediaId, slug, data, id, item }) => {
         setError(error);
       });
     
-    if (item != null && (index % 2 == 0)) { 
-      camera.position.lerp(vec.set(20, 2,  2), .1)
-
-    }
+    
     
   }, []);
 
   return (
-    <>
+      <>
+          
       <group
         position={[offsetX, offsetY, -24.846]}
         rotation={[0, 0, 0]}
@@ -89,11 +118,31 @@ const ThumbnailItemAbout = ({ index, mediaId, slug, data, id, item }) => {
 }
 
 const ThumbnailDisplayAbout = ({ data, item, view, aboutMaterials, aboutNodes }) => { 
-  console.log(data);
+    console.log("member: ", data);
+      const [indexFnd, setIndexFnd] = useState(0);
+
+     if (item != undefined && view == "about") {
+      const findIndexFc = (element) => element.slug == item;
+      const indexFnd = data.findIndex(findIndexFc);
+      setIndexFnd(indexFnd);
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data[indexFnd].content.rendered, 'text/html');
+      const pTags = doc.querySelectorAll('p');
+      const iFrameTag = doc.querySelectorAll('iframe'); //Return NodeList
+      const iFrameArray = Array.from(iFrameTag).map(node => node.outerHTML); // Convert NodeList to an Array and then to a string
+      const pArray = Array.from(pTags).map(p => `<p>${p.textContent.trim()}</p>`);
+      const pString = pArray.join('');
+      const iFrameString = iFrameArray.join('');
+
+      setDescription(pString);
+      setTitle(data[indexFnd].title.rendered);
+      setVideo(iFrameString);
+    }
   
 
   return (
-    <>
+      <>
+          
       {data.map((featured, index) => (
         <ThumbnailItemAbout key={index} index={index} id={featured.id} mediaId={featured.featured_media} slug={featured.slug} data={data} item={item}  />
       ))
@@ -111,7 +160,7 @@ const About = (props) => {
     useEffect(() => {
     //WP REST API endpoint
     const { hostname, protocol } = window.location;
-    const url = `${protocol}//toskuone.local/wp-json/wp/v2/members`
+    const url = `${protocol}//${hostname}/wp-json/wp/v2/members`
 
     if (data.length <= 0) {
       axios.get(url)
@@ -389,7 +438,7 @@ const About = (props) => {
           geometry={nodes.Cylinder009.geometry}
           material={materials['Sci-Fi Metal Greeble (Small).009']}
         >
-          <meshBasicMaterial color={"blue"} />
+
       </mesh>
           
         <mesh
@@ -398,7 +447,7 @@ const About = (props) => {
           geometry={nodes.Cylinder009_1.geometry}
           material={materials['Sci-Fi Metal Greeble (Small).010']}
         >
-          <meshBasicMaterial color={"blue"} />
+  
       </mesh>
         <mesh
           castShadow
@@ -406,7 +455,7 @@ const About = (props) => {
           geometry={nodes.Cylinder009_2.geometry}
           material={materials['Sci-Fi Metal Greeble (Small).011']}
         >
-          <meshBasicMaterial color={"blue"} />
+     
       </mesh>
         <mesh
           castShadow
@@ -414,7 +463,7 @@ const About = (props) => {
           geometry={nodes.Cylinder009_3.geometry}
           material={materials['Sci-Fi Metal Greeble (Small).012']}
         >
-          <meshBasicMaterial color={"blue"} />
+
       </mesh>
       </group>
       <group position={[4.477, 2.427, -18.454]} rotation={[-Math.PI / 2, 0, 0]} scale={0.024}>
