@@ -1,18 +1,19 @@
 import { Suspense, useState, useEffect, useRef, lazy } from 'react'
 import { BrowserRouter as Router, Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { useProgress } from "@react-three/drei";
+import { useProgress, OrbitControls } from "@react-three/drei";
 import { Canvas } from '@react-three/fiber';
 import { useControls } from 'leva';
 import { CameraControl } from "./CameraControl";
 import { NavigationButton } from "./NavigationButton";
 
 
+
 import LoadingScreen from "./LoadingScreen";
 import Home from "./Home";
 
-/* const  About  = lazy(() => import('./About')); */
-const  Featured  = lazy(() => import("./Featured"));
-/* const  Contact = lazy(() => import("./Contact")); */
+const  About  = lazy(() => import('./About')); 
+const Featured = lazy(() => import("./Featured"));
+const Contact = lazy(() => import("./Contact")); 
 
 import * as THREE from 'three'
 
@@ -78,13 +79,13 @@ const Experience = ({ setVideoStart }) => {
       <color attach="background" args={["black"]} />
       <CameraControl view={view} item={item} /> 
 
-     {/*  <OrbitControls />  */}
+    {/*   <OrbitControls />  */} 
        
       <VideoScreen videoStart={setVideoStart}/>
         <Home />
         <Featured view={view} item={ item } />
-{/*         <Contact />
-        <About view={view} item={ item } /> */}
+        <Contact />
+        <About view={view} item={ item } /> 
 
          {/* Home */}
         <NavigationButton position={[4.499, 1.844,-1.5 ]} rotation={[0, -Math.PI / 2, 0]} navigateTo="/about">ABOUT</NavigationButton>
