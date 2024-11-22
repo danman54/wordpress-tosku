@@ -28,8 +28,10 @@ const VideoScreen = ({ videoStart }) => {
     const video = document.createElement('video');
   const videoMeshRef = useRef();
   useEffect(() => {
-      
-      video.src = 'http://toskuone.local/wp-content/uploads/2024/videos/novreel-updated.mp4';
+
+      const { hostname, protocol } = window.location;
+      const url = `${protocol}//${hostname}/wp-content/uploads/2024/videos/novreel-updated.mp4`  
+      video.src = url;
       video.crossOrigin = 'anonymous';
       video.load();
       if(videoStart) video.play()
