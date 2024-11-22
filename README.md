@@ -9,7 +9,7 @@ Main entry
 
 ## Assets
 
-All assets are exports from the main TOSKU blender file not in this repo. 
+All assets are model exports from the main TOSKU blender file not in this repo. 
 
 ## React App
 
