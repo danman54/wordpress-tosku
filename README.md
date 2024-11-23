@@ -30,4 +30,6 @@ uncomment Ln: 84 and comment out Ln:82 in `src/App.jsx`
 
 - update the functions.php file, tosku_enqueue_scripts() function with the newly generated built .js and .css file names.
 
+- Delete the node_modules forder and compress and bundle this entire root folder as a .zip file and install it as a new theme through Wordpress. Replacing the current one.  
+
 
